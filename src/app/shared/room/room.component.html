@@ -1,0 +1,17 @@
+<div class="room-container container-fluid">
+  <div class="row">
+    <button type="button" (click)="onClick(room)" *ngFor="let room of rooms" class="btn btn-light col" [class.active]="selectedRooms.includes(room.room_number)" [disabled]="room.booked">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{room.room_number}}</h5>
+          <p class="card-text">{{room.room_type}}</p>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-primary clear" (click)="selectedRooms = []">Clear Selection</button>
+    </div>
+  </div>
+</div>

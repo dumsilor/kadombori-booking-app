@@ -1,0 +1,51 @@
+<app-title></app-title>
+<div class="booking-container ">
+  <form (ngSubmit)="onSubmit(bookingForm)" #bookingForm="ngForm">
+    <div class="row">
+      <div class="form-floating mb-3 col">
+        <input type="text" class="form-control" id="fName" placeholder="Tom" ngModel name="fName" required>
+        <label for="fName">First Name</label>
+      </div>
+      <div class="lName mb-3 col form-floating">
+        <input type="text" class="form-control" id="lName" placeholder="Cannon" ngModel name="lName" required>
+        <label for="lName" class="form-label">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="phoneNum mb-3 col form-floating">
+        <input type="text" class="form-control" id="phoneNum" placeholder="+880111111111" ngModel name="phoneNum" required>
+        <label for="phoneNum" class="form-label">Phone Number</label>
+      </div>
+      <div class="nid mb-3 col form-floating">
+        <input type="text" class="form-control" id="nid" placeholder="xxxxxxxxxx" ngModel name="nid" required>
+        <label for="nid" class="form-label">Enter NID</label>
+      </div>
+      <div class="col form-floating">
+        <input type="number" class="form-control" id="numberInput" placeholder="Enter a number" min="1" max="10" readonly [(ngModel)]="numberOfRooms" name="numberOfRooms">
+        <label for="numberInput">Number of Rooms</label>
+      </div>
+    </div>
+    <div class="row">
+      <app-datepicker></app-datepicker>
+    </div>
+    <div class="row">
+      <app-room></app-room>
+    </div>
+    <div class="row">
+      <div class="col form-floating">
+        <input type="text" class="form-control" id="unitPrice" [value]="roomPrice+' BDT'" disabled>
+        <label for=" unitPrice">Room Price</label>
+      </div>
+      <div class="col form-floating">
+        <input type="text" class="form-control" id="unitPrice" [value]="totalPrice + ' BDT'" placeholder="0" readonly [(ngModel)]="totalPrice" name="totalPrice">
+        <label for="unitPrice">Total Price</label>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4 col-sm-6">
+        <button class="btn btn-info submit" type="submit" [disabled]="!bookingForm.valid">Book</button>
+        <a class="btn btn-secondary" [routerLink]="['/search']">Back to Search</a>
+      </div>
+    </div>
+  </form>
+</div>

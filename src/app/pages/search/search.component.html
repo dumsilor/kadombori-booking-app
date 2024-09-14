@@ -1,0 +1,24 @@
+<app-title></app-title>
+
+<div class="search-container">
+  <div class="datepick-container">
+    <app-datepicker></app-datepicker>
+  </div>
+  <div class="button">
+    <button mat-raised-button color="primary" class="find-btn" (click)="findBooking()">Search</button>
+  </div>.
+</div>
+
+
+<div class="searchStatus" [ngClass]="{open: popUpOpen}">
+  <div class="back-drop" (click)="popUpOpen = false"></div>
+  <div class="availability" *ngIf="availability else notAvailable">
+    <header>Booking Availble</header>
+    <a routerLink="/booking">Go to Booking</a>
+    <button class="cancel" (click)="popUpOpen = false">Search Again</button>
+  </div>
+  <ng-template #notAvailable>
+    <header>Booking Not Availble</header>
+    <a routerLink="/search">Pick a new Date</a>
+  </ng-template>
+</div>

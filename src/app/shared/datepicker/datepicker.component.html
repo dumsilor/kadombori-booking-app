@@ -1,0 +1,14 @@
+<mat-form-field>
+  <mat-label>Select Tour Date</mat-label>
+  <mat-date-range-input [formGroup]="tripDate" [dateFilter]="oldDayFilter" [rangePicker]="picker" (ngModelChange)="onDateChange()">
+    <input matStartDate placeholder="Start date" formControlName="start">
+    <input matEndDate placeholder="End date" formControlName="end">
+  </mat-date-range-input>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker touchUi #picker>
+    <mat-datepicker-actions>
+      <button mat-button matDatepickerCancel class="cancel-btn button">Cancel</button>
+      <button mat-raised-button matDatepickerApply class="apply-btn button" (click)="onDateChange()">Apply</button>
+    </mat-datepicker-actions>
+  </mat-date-range-picker>
+</mat-form-field>
